@@ -63,7 +63,7 @@ function Login() {
       .then((response) => {
         const data = response.data;
         if (data.message === "Email yoki parol noto'g'ri") {
-          alert(data.message);
+          alert("Email yoki parol noto'g'ri");
         } else if (data.user.id) {
           localStorage.setItem("token", data.accessToken);
           localStorage.setItem("user", JSON.stringify(data.user));
@@ -72,7 +72,7 @@ function Login() {
         }
       })
       .catch((error) => {
-        alert("Username yoki parol xato");
+        alert("Email yoki parol noto'g'ri");
         console.log(error);
       })
       .finally(() => {
