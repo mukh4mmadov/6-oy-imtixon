@@ -72,7 +72,7 @@ function Login() {
         }
       })
       .catch((error) => {
-        alert("Xato yuz berdi, iltimos qaytadan urinib ko'ring.");
+        alert("Username yoki parol xato");
         console.log(error);
       })
       .finally(() => {
@@ -84,7 +84,7 @@ function Login() {
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
-        <form ref={formRef}>
+        <form ref={formRef} onSubmit={handleLogin}>
           <div className="mb-4">
             <label className="block text-gray-700 font-bold mb-2">
               UserName:
@@ -94,6 +94,7 @@ function Login() {
               type="email"
               className="w-full p-3 border rounded-lg focus:outline-none focus:border-indigo-500"
               placeholder="UserName kiriting (email)"
+              required
             />
           </div>
 
@@ -105,6 +106,7 @@ function Login() {
                 type={showPassword ? "text" : "password"}
                 className="w-full p-3 border rounded-lg focus:outline-none focus:border-indigo-500"
                 placeholder="Parolni kiriting"
+                required
               />
               <button
                 type="button"
@@ -120,7 +122,7 @@ function Login() {
 
           <button
             disabled={loading}
-            onClick={handleLogin}
+            type="submit"
             className="w-full bg-indigo-500 text-white p-3 rounded-lg hover:bg-indigo-600 transition-colors"
           >
             {loading ? "LOADING" : "LOGIN"}
